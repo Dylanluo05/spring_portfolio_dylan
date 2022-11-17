@@ -24,9 +24,35 @@ public class APCalendar {
      * firstDayOfYear(2019) returns 2 for Tuesday.
     */
     private static int firstDayOfYear(int year) {
-        Date currentDate = new Date(year-1900, 0, 1);
+        int currentYearFirstDay = 6;
 
-        return currentDate.getDay();
+        if (year == 2022) {
+            currentYearFirstDay = 6;
+        } else if (year < 2022) {
+            int yearsAway = 2022 - year;
+            int leapYearsAway = numberOfLeapYears(year, 2022);
+            int nonLeapYearsAway = yearsAway - leapYearsAway;
+            int daysAway = (leapYearsAway * 366) + (nonLeapYearsAway * 365);
+            for (int i = 0; i < daysAway; i++) {
+                currentYearFirstDay--;
+                if (currentYearFirstDay == -1) {
+                    currentYearFirstDay = 6;
+                }
+            }
+        } else if (year > 2022) {
+            int yearsAway = year - 2022;
+            int leapYearsAway = numberOfLeapYears(2022, year-1);
+            int nonLeapYearsAway = yearsAway - leapYearsAway;
+            int daysAway = (leapYearsAway * 366) + (nonLeapYearsAway * 365);
+            for (int i = 0; i < daysAway; i++) {
+                currentYearFirstDay++;
+                if (currentYearFirstDay == 7) {
+                    currentYearFirstDay = 0;
+                }
+            }
+        }
+        
+        return currentYearFirstDay;
     }
 
 
@@ -38,16 +64,12 @@ public class APCalendar {
     */ 
     private static int dayOfYear(int month, int day, int year) {
         int n = 0;
-        int jan, mar, may, jul, aug, oct, dec;
-        jan = mar = may = jul = aug = oct = dec = 31;
-        int apr, jun, sep, nov;
-        apr = jun = sep = nov = 30;
         int feb = 28;
          if (isLeapYear(year) == true) {
             feb = 29;
         }
 
-        int[] months = {jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec};
+        int[] months = {31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         for (int i = 0; i < month - 1; i++) {
             n += months[i];
         }
@@ -76,21 +98,39 @@ public class APCalendar {
      * Precondition: The date represented by month, day, year is a valid date.
     */
     public static int dayOfWeek(int month, int day, int year) { 
-        Date currentDate2 = new Date(year-1900, month-1, day);
+        int yearFirstDay = firstDayOfYear(year);
+        int feb = 28;
+         if (isLeapYear(year) == true) {
+            feb = 29;
+        }
+        int daysAway = 0;
+        int[] months = {31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        for (int i = 0; i < month - 1; i++) {
+            daysAway += months[i];
+        }
 
-        return currentDate2.getDay();
+        daysAway += (day - 1);
+
+        int weekDay = yearFirstDay;
+        for (int i = 0; i < daysAway; i++) {
+            weekDay++;
+            if (weekDay == 7) {
+                weekDay = 0;
+            }
+        }
+
+        return weekDay;
     }
 
     /** Tester method */
     public static void main(String[] args) {
         // Private access modifiers
-        System.out.println("firstDayOfYear: " + APCalendar.firstDayOfYear(2022));
-        System.out.println("dayOfYear: " + APCalendar.dayOfYear(1, 1, 2022));
+        System.out.println("firstDayOfYear: " + APCalendar.firstDayOfYear(2019));
+        System.out.println("dayOfYear: " + APCalendar.dayOfYear(2, 1, 2019));
 
         // Public access modifiers
-        System.out.println("isLeapYear: " + APCalendar.isLeapYear(2024));
-        System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2000, 2022));
-        System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(7, 1, 2022));
+        System.out.println("isLeapYear: " + APCalendar.isLeapYear(2017));
+        System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2009, 2016));
+        System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(1, 28, 2017));
     }
-
 }

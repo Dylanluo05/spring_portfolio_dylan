@@ -22,7 +22,7 @@ public class APCalendar {
      * 6 denotes Saturday. 
      * firstDayOfYear(2019) returns 2 for Tuesday.
     */
-    private static int firstDayOfYear(int year) {
+    public static int firstDayOfYear(int year) {
         int currentYearFirstDay = 6;
 
         if (year == 2022) {
@@ -61,7 +61,7 @@ public class APCalendar {
      * dayOfYear(3, 1, 2017) returns 60, since 2017 is not a leap year
      * dayOfYear(3, 1, 2016) returns 61, since 2016 is a leap year. 
     */ 
-    private static int dayOfYear(int month, int day, int year) {
+    public static int dayOfYear(int month, int day, int year) {
         int n = 0;
         int feb = 28;
         if (isLeapYear(year) == true) {

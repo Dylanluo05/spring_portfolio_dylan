@@ -4,7 +4,6 @@ import java.util.*;
 // Prototype Implementation
 
 public class APCalendar {
-
     /** Returns true if year is a leap year and false otherwise.
      * isLeapYear(2019) returns False
      * isLeapYear(2016) returns True
@@ -124,13 +123,37 @@ public class APCalendar {
 
     /** Tester method */
     public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
         // Private access modifiers
-        System.out.println("firstDayOfYear: " + APCalendar.firstDayOfYear(2019));
-        System.out.println("dayOfYear: " + APCalendar.dayOfYear(2, 1, 2019));
+        System.out.println("Enter a year:");
+        int yearInput1 = userInput.nextInt();
+        System.out.println("firstDayOfYear: " + APCalendar.firstDayOfYear(yearInput1));
+
+        System.out.println("Enter a year:");
+        int yearInput2 = userInput.nextInt();
+        System.out.println("Enter a month:");
+        int monthInput2 = userInput.nextInt();
+        System.out.println("Enter a day:");
+        int dayInput2 = userInput.nextInt();
+        System.out.println("dayOfYear: " + APCalendar.dayOfYear(monthInput2, dayInput2, yearInput2));
 
         // Public access modifiers
-        System.out.println("isLeapYear: " + APCalendar.isLeapYear(2017));
-        System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2009, 2016));
-        System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(1, 28, 2017));
+        System.out.println("Enter a year:");
+        int yearInput3 = userInput.nextInt();
+        System.out.println("isLeapYear: " + APCalendar.isLeapYear(yearInput3));
+
+        System.out.println("Enter a year:");
+        int yearInput4 = userInput.nextInt();
+        System.out.println("Enter a year that comes after the previous year you input:");
+        int yearInput4After = userInput.nextInt();
+        System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(yearInput4, yearInput4After));
+
+        System.out.println("Enter a year:");
+        int yearInput5 = userInput.nextInt();
+        System.out.println("Enter a month:");
+        int monthInput5 = userInput.nextInt();
+        System.out.println("Enter a day:");
+        int dayInput5 = userInput.nextInt();
+        System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(monthInput5, dayInput5, yearInput5));
     }
 }

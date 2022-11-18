@@ -1,4 +1,5 @@
 package com.nighthawk.spring_portfolio.mvc.calendar;
+import java.util.*;
 
 /** Simple POJO 
  * Used to Interface with APCalendar
@@ -16,6 +17,7 @@ class Year {
    public int getYear() {
       return year;
    }
+
    public void setYear(int year) {
       this.year = year;
       this.setIsLeapYear(year);
@@ -31,8 +33,8 @@ class Year {
 
    /* isLeapYearToString formatted to be mapped to JSON */
    public String isLeapYearToString(){
-      return ( "{ \"year\": "  +this.year+  ", " + "\"isLeapYear\": "  +this.isLeapYear+ " }" );
-   }	
+      return ( "{ \"year\": "  + this.year+  ", " + "\"isLeapYear\": "  + this.isLeapYear + " }");
+   }
 
    /* standard toString placeholder until class is extended */
    public String toString() { 
@@ -41,7 +43,10 @@ class Year {
 
    public static void main(String[] args) {
       Year year = new Year();
-      year.setYear(2022);
+      Scanner userInput = new Scanner(System.in);
+      System.out.println("Enter a year to check if it is a leap year:");
+      int yearInput = userInput.nextInt();
+      year.setYear(yearInput);
       System.out.println(year);
    }
 }

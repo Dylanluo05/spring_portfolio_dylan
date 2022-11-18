@@ -131,9 +131,23 @@ class Year {
    }
 
    public String isLeapYearToString(){
-      return ( "{ \"year\": "  + this.year+  ", " + "\"isLeapYear\": "  + this.isLeapYear + ", " + "\"firstDayOfYear\": "  + this.firstDayOfYear +  ", " + "\"year1\": "  + this.year1 + ", " + "\"year2\": "  + this.year2 + 
-      ", " + "\"numberOfLeapYears\": "  + this.numberOfLeapYears + ", " + "\"year3\": "  + this.year3 + ", " + "\"month3\": "  + this.month3 + ", " + "\"day3\": "  + this.day3 + 
-      ", " + "\"dayOfYear\": "  + this.dayOfYear + ", " + "\"year4\": "  + this.year4 + ", " + "\"month4\": "  + this.month4 + ", " + "\"day4\": "  + this.day4 + ", " + "\"dayOfWeek\": "  + this.dayOfWeek + " }");
+      return ( "{ \"year\": "  + this.year+  ", " + "\"isLeapYear\": "  + this.isLeapYear + " }");
+   }
+
+   public String firstDayOfYearToString() {
+      return ( "{ \"year\": "  + this.year+  ", " + "\"firstDayOfYear\": "  + this.firstDayOfYear + " }");
+   }
+
+   public String numberOfLeapYearsToString() {
+      return ( "{ \"year1\": "  + this.year1 +  ", " + "\"year2\": "  + this.year2 + ", " + "\"numberOfLeapYears\": "  + this.numberOfLeapYears + " }");
+   }
+
+   public String dayOfYearToString() {
+      return ( "{ \"month3\": "  + this.month3 +  ", " + "\"day3\": "  + this.day3 + ", " + "\"year3\": "  + this.year3 + ", " + "\"dayOfYear\": "  + this.dayOfYear + " }");
+   }
+
+   public String dayOfWeekToString() {
+      return ( "{ \"month4\": "  + this.month4 +  ", " + "\"day4\": "  + this.day4 + ", " + "\"year4\": "  + this.year4 + ", " + "\"dayOfWeek\": "  + this.dayOfWeek + " }");
    }
 
    public String toString() { 

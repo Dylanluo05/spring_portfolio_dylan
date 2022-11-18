@@ -65,7 +65,7 @@ public class APCalendar {
     private static int dayOfYear(int month, int day, int year) {
         int n = 0;
         int feb = 28;
-         if (isLeapYear(year) == true) {
+        if (isLeapYear(year) == true) {
             feb = 29;
         }
 

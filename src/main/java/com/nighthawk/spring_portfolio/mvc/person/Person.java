@@ -138,7 +138,663 @@ public class Person {
         System.out.println(mendy);
         System.out.println(mendy.getAge());
 
-       
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
+
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
 
     }
 

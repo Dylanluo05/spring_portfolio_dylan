@@ -157,6 +157,12 @@ public class Person {
         System.out.println(floyd);
         System.out.println(floyd.getAge());
 
+        Date col = new Date(92, 4, 8);
+        Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(jimmy);
+        System.out.println(jimmy.getAge());
+
     }
 
 }

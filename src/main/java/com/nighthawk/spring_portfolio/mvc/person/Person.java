@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.text.SimpleDateFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +20,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.data.mongodb.core.schema.JsonSchemaObject.Type.JsonType;
+import com.vladmihalcea.hibernate.type.json.JsonType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -63,13 +63,12 @@ public class Person {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
-
-    @NotEmpty
+    
+    @Column(unique=false)
     private double weight;
 
-    @NotEmpty
+    @Column(unique=false)
     private double height;
-    
 
     /* HashMap is used to store JSON for daily "stats"
     "stats": {
@@ -79,10 +78,10 @@ public class Person {
         }
     }
     */
-    
-    /*@Type(type="json")
+    @Type(type="json")
     @Column(columnDefinition = "jsonb")
-    private Map<String,Map<String, Object>> stats = new HashMap<>();*/
+    private Map<String,Map<String, Object>> stats = new HashMap<>(); 
+    
 
     // Constructor used when building object from an API
     public Person(String email, String password, String name, Date dob, double weight, double height) {
@@ -93,6 +92,9 @@ public class Person {
         this.weight = weight;
         this.height = height;
     }
+    public String toString(){
+        return ("{ \"email\": " + this.email + ", " + "\"password\": " + this.password + ", " + "\"name\": " + this.name + ", " + "\"dob\": " + this.dob + ", \"weight\": " + this.weight + ", \"height\": " + this.height + " }" );
+    }
 
     // A custom getter to return age from dob attribute
     public int getAge() {
@@ -102,25 +104,26 @@ public class Person {
         return -1;
     }
 
-    public double BMI(double weight, double height) {
-        double BMIValue = 703 * (weight/Math.pow(height, 2));
-        return BMIValue;
+    public String getAgeToString(){
+        return ("{ \"name\": " + this.name + " ," + "\"age\": " + this.getAge() + " }" );
     }
 
-    public String toString() {
-        return ( "{ \"email\": "  + this.email +  ", " + "\"name\": "  + this.name +  ", " + "\"password\": "  + this.password + ", " +
-        "\"dob\": "  + this.dob + ", " + "\"weight\": "  + this.weight + ", " + "\"height\": "  + this.height + ", " + "\"age\": "  + this.getAge() +
-        ", " + "\"BMI\": "  + this.BMI(this.weight, this.height) +  " }");
+    /*public String getNationality(){
+        return nationality;
     }
 
+    public String getNationalityToString(){
+        return ("{ \"name\": " + this.name + " ," + "\"bmi\": " + this.getNationality() + " }" );
+    }*/
 
     public static void main(String[] args) {
         Person noArg = new Person();
-        Date date = new Date(105, 7, 11);
-        Person dylan = new Person("dragonfly.luo@gmail.com", "12345678", "Dylan", date, 125, 67);
+        Date dob = new GregorianCalendar(2005, 7, 11).getTime();
+        Person dylan = new Person("dragonfly.luo@gmail.com", "12345678", "Dylan", dob, 125, 67);
         System.out.println(noArg);
         System.out.println(dylan);
         System.out.println(dylan.getAge());
-    }
+     }
+
 
 }

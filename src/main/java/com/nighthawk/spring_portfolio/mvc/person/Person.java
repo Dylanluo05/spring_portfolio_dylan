@@ -84,6 +84,7 @@ public class Person {
     @Column(columnDefinition = "jsonb")
     private Map<String,Map<String, Object>> stats = new HashMap<>();*/
 
+
     // Constructor used when building object from an API
     public Person(String email, String password, String name, Date dob, double weight, double height) {
         this.email = email;
@@ -121,6 +122,12 @@ public class Person {
         System.out.println(noArg);
         System.out.println(dylan);
         System.out.println(dylan.getAge());
+
+      
+        Date BD = new Date(102, 4, 8);
+        Person aryan = new Person("aryanm@gma", "12345678", "Aryan", date, 115, 66);
+       
+
     }
 
 }

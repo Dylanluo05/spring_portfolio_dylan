@@ -38,9 +38,9 @@ The last annotation connect to database
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@TypeDef(name="json", typeClass = JsonType.class)
+@TypeDef(name = "json", typeClass = JsonType.class)
 public class Person {
-    
+
     // automatic unique identifier for Person record
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,15 +48,16 @@ public class Person {
 
     // email, password, roles are key attributes to login and authentication
     @NotEmpty
-    @Size(min=5)
-    @Column(unique=true)
+    @Size(min = 5)
+    @Column(unique = true)
     @Email
     private String email;
 
     @NotEmpty
     private String password;
 
-    // @NonNull, etc placed in params of constructor: "@NonNull @Size(min = 2, max = 30, message = "Name (2 to 30 chars)") String name"
+    // @NonNull, etc placed in params of constructor: "@NonNull @Size(min = 2, max =
+    // 30, message = "Name (2 to 30 chars)") String name"
     @NonNull
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
@@ -100,21 +101,22 @@ public class Person {
     public int getAge() {
         if (this.dob != null) {
             LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            return Period.between(birthDay, LocalDate.now()).getYears(); }
+            return Period.between(birthDay, LocalDate.now()).getYears();
+        }
         return -1;
     }
 
-    public String getAgeToString(){
-        return ("{ \"name\": " + this.name + " ," + "\"age\": " + this.getAge() + " }" );
+    public double BMI(double weight, double height) {
+        double BMIValue = 703 * (weight/Math.pow(height, 2));
+        return BMIValue;
     }
 
-    /*public String getNationality(){
-        return nationality;
+    public String toString() {
+        return ( "{ \"email\": "  + this.email +  ", " + "\"name\": "  + this.name +  ", " + "\"password\": "  + this.password + ", " +
+        "\"dob\": "  + this.dob + ", " + "\"weight\": "  + this.weight + ", " + "\"height\": "  + this.height + ", " + "\"age\": "  + this.getAge() +
+        ", " + "\"BMI\": "  + this.BMI(this.weight, this.height) +  " }");
     }
 
-    public String getNationalityToString(){
-        return ("{ \"name\": " + this.name + " ," + "\"bmi\": " + this.getNationality() + " }" );
-    }*/
 
     public static void main(String[] args) {
         Person noArg = new Person();
@@ -123,7 +125,7 @@ public class Person {
         System.out.println(noArg);
         System.out.println(dylan);
         System.out.println(dylan.getAge());
-     }
+    }
 
 
 }

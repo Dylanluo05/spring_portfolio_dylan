@@ -38,9 +38,9 @@ The last annotation connect to database
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@TypeDef(name="json", typeClass = JsonType.class)
+@TypeDef(name = "json", typeClass = JsonType.class)
 public class Person {
-    
+
     // automatic unique identifier for Person record
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,15 +48,16 @@ public class Person {
 
     // email, password, roles are key attributes to login and authentication
     @NotEmpty
-    @Size(min=5)
-    @Column(unique=true)
+    @Size(min = 5)
+    @Column(unique = true)
     @Email
     private String email;
 
     @NotEmpty
     private String password;
 
-    // @NonNull, etc placed in params of constructor: "@NonNull @Size(min = 2, max = 30, message = "Name (2 to 30 chars)") String name"
+    // @NonNull, etc placed in params of constructor: "@NonNull @Size(min = 2, max =
+    // 30, message = "Name (2 to 30 chars)") String name"
     @NonNull
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
@@ -69,21 +70,23 @@ public class Person {
 
     @NotEmpty
     private double height;
-    
 
-    /* HashMap is used to store JSON for daily "stats"
-    "stats": {
-        "2022-11-13": {
-            "calories": 2200,
-            "steps": 8000
-        }
-    }
-    */
-    
-    /*@Type(type="json")
-    @Column(columnDefinition = "jsonb")
-    private Map<String,Map<String, Object>> stats = new HashMap<>();*/
+    /*
+     * HashMap is used to store JSON for daily "stats"
+     * "stats": {
+     * "2022-11-13": {
+     * "calories": 2200,
+     * "steps": 8000
+     * }
+     * }
+     */
 
+    /*
+     * @Type(type="json")
+     * 
+     * @Column(columnDefinition = "jsonb")
+     * private Map<String,Map<String, Object>> stats = new HashMap<>();
+     */
 
     // Constructor used when building object from an API
     public Person(String email, String password, String name, Date dob, double weight, double height) {
@@ -99,21 +102,23 @@ public class Person {
     public int getAge() {
         if (this.dob != null) {
             LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            return Period.between(birthDay, LocalDate.now()).getYears(); }
+            return Period.between(birthDay, LocalDate.now()).getYears();
+        }
         return -1;
     }
 
     public double BMI(double weight, double height) {
-        double BMIValue = 703 * (weight/Math.pow(height, 2));
+        double BMIValue = 703 * (weight / Math.pow(height, 2));
         return BMIValue;
     }
 
     public String toString() {
-        return ( "{ \"email\": "  + this.email +  ", " + "\"name\": "  + this.name +  ", " + "\"password\": "  + this.password + ", " +
-        "\"dob\": "  + this.dob + ", " + "\"weight\": "  + this.weight + ", " + "\"height\": "  + this.height + ", " + "\"age\": "  + this.getAge() +
-        ", " + "\"BMI\": "  + this.BMI(this.weight, this.height) +  " }");
+        return ("{ \"email\": " + this.email + ", " + "\"name\": " + this.name + ", " + "\"password\": " + this.password
+                + ", " +
+                "\"dob\": " + this.dob + ", " + "\"weight\": " + this.weight + ", " + "\"height\": " + this.height
+                + ", " + "\"age\": " + this.getAge() +
+                ", " + "\"BMI\": " + this.BMI(this.weight, this.height) + " }");
     }
-
 
     public static void main(String[] args) {
         Person noArg = new Person();
@@ -123,22 +128,34 @@ public class Person {
         System.out.println(dylan);
         System.out.println(dylan.getAge());
 
-      
-        Date BD = new Date(102, 4, 8);
-        Person aryan = new Person("aryanm@gma", "12345678", "Aryan", date, 115, 66);
+        Date bd = new Date(102, 4, 8);
+        Person aryan = new Person("aryanm@gma", "12345678", "Aryan", bd, 115, 66);
         System.out.println(aryan);
         System.out.println(aryan.getAge());
 
-
         Date day = new Date(102, 4, 8);
-        Person mendy = new Person("mendy@prisonfc.com", "120395", "Benjamin", date, 210, 74);
+        Person mendy = new Person("mendy@prisonfc.com", "120395", "Benjamin", day, 210, 74);
         System.out.println(mendy);
         System.out.println(mendy.getAge());
 
-
         Date time = new Date(92, 4, 8);
-        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", date, 210, 74);
-        
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(greg);
+        System.out.println(greg.getAge());
+
+        Date cal = new Date(92, 4, 8);
+        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(dough);
+        System.out.println(dough.getAge());
+
+
+        Date mpc = new Date(92, 4, 8);
+        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
+
+        System.out.println(floyd);
+        System.out.println(floyd.getAge());
 
     }
 

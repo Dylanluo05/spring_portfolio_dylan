@@ -133,7 +133,7 @@ public class Person {
         Date day = new Date(102, 4, 8);
         Person mendy = new Person("mendy@prisonfc.com", "120395", "Benjamin", date, 210, 74);
         System.out.println(mendy);
-        
+        System.out.println(mendy.getAge());
 
     }
 

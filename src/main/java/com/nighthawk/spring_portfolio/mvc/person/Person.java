@@ -126,7 +126,8 @@ public class Person {
       
         Date BD = new Date(102, 4, 8);
         Person aryan = new Person("aryanm@gma", "12345678", "Aryan", date, 115, 66);
-       
+        System.out.println(aryan);
+        System.out.println(aryan.getAge());
 
     }
 

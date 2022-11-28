@@ -135,6 +135,11 @@ public class Person {
         System.out.println(mendy);
         System.out.println(mendy.getAge());
 
+
+        Date time = new Date(92, 4, 8);
+        Person greg = new Person("ggreg@gmail.com", "120395", "Benjamin", date, 210, 74);
+        
+
     }
 
 }

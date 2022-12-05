@@ -19,6 +19,7 @@ public class Calculator {
         // Map<"token", precedence>
         OPERATORS.put("^", 1);
         OPERATORS.put("root", 2);
+        OPERATORS.put("sqrt", 2);
         OPERATORS.put("*", 3);
         OPERATORS.put("/", 3);
         OPERATORS.put("%", 3);
@@ -155,6 +156,7 @@ public class Calculator {
                 case "/":
                 case "%":
                 case "^":
+                case "sqrt":
                 case "root":
                     // While stack
                     // not empty AND stack top element
@@ -179,7 +181,7 @@ public class Calculator {
                     {
                         // Resolve variable to 0 in order for the rest of the function to successfully run.
                         this.reverse_polish.add("0");
-                        this.expression = "Error with parsing your expression \'" + this.expression + "\'. Please enter valid numbers, operators, or variables and try again.";
+                        this.expression = "Parsing error \'" + this.expression + "\'. Check the validity of your expression and try again.";
                         break;
                     }
                     this.reverse_polish.add(token);
@@ -195,63 +197,71 @@ public class Calculator {
     // Takes RPN and produces a final result
     private void rpnToResult()
     {
-        // stack is used to hold operands and each calculation
-        Stack<Double> calcStack = new Stack<Double>();
+        if (isBalanced(this.tokens) == true) {
+            // stack is used to hold operands and each calculation
+            Stack<Double> calcStack = new Stack<Double>();
 
-        // RPN is processed, ultimately calcStack has final result
-        for (String token : this.reverse_polish)
-        {
-            // If the token is an operator, calculate
-            if (isOperator(token))
+            // RPN is processed, ultimately calcStack has final result
+            for (String token : this.reverse_polish)
             {
-                            
-                // Store the top two entries into variables x and y then pop them
-                double x = calcStack.pop();
-                double y = calcStack.pop();
+                // If the token is an operator, calculate
+                if (isOperator(token))
+                {
+                                
+                    // Store the top two entries into variables x and y then pop them
+                    double x = calcStack.pop();
+                    double y = calcStack.pop();
 
-                // Calculate intermediate results
-                switch (token) {
-                    // Variable y should be on the left of each computation
-                    case "+":
-                        result = y + x;
-                        break;
-                    case "-":
-                        result = y - x;
-                        break;
-                    case "*":
-                        result = y * x;
-                        break; 
-                    case "/":
-                        result = y / x;
-                        break;
-                    case "%":
-                        result = y % x;
-                        break;
-                    case "^":
-                        result = Math.pow(y, x);
-                        break;
-                    case "root":
-                        result = Math.pow(x, 1/y);
-                    default:
-                        break;
+                    // Calculate intermediate results
+                    switch (token) {
+                        // Variable y should be on the left of each computation
+                        case "+":
+                            result = y + x;
+                            break;
+                        case "-":
+                            result = y - x;
+                            break;
+                        case "*":
+                            result = y * x;
+                            break; 
+                        case "/":
+                            result = y / x;
+                            break;
+                        case "%":
+                            result = y % x;
+                            break;
+                        case "^":
+                            result = Math.pow(y, x);
+                            break;
+                        case "root":
+                            result = Math.pow(x, 1/y);
+                            break;
+                        case "sqrt":
+                            result = Math.pow(y, 1/2);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    // Push intermediate result back onto the stack
+                    calcStack.push( result );
                 }
-
-                // Push intermediate result back onto the stack
-                calcStack.push( result );
+                // else the token is a number push it onto the stack
+                else
+                {
+                    calcStack.push(Double.valueOf(token));
+                }
             }
-            // else the token is a number push it onto the stack
-            else
-            {
-                calcStack.push(Double.valueOf(token));
-            }
+            // Pop final result and set as final result for expression
+            this.result = calcStack.pop();
+        } else if (isBalanced(this.tokens) == false) {
+            System.out.println("Hello");
         }
-        // Pop final result and set as final result for expression
-        this.result = calcStack.pop();
     }
 
     public String toString() {
-        return ( "{ \"expression\": "  + this.expression +  ", " + "\"tokens\": "  + this.tokens + ", " + "\"reverse_polish\": "  + this.reverse_polish +
-        ", " + "\"result\": "  + this.result + " }"); 
+        return ( "{ \"expression\": "  + this.expression +  ", " + "\"tokens\": "  + this.tokens.toString() + ", " + "\"reverse_polish\": "  + this.reverse_polish.toString() +
+        ", " + "\"result\": "  + String.format("%.2f", this.result) + " }"); 
     }
     
     public static void main(String[] args) {
@@ -282,7 +292,7 @@ public class Calculator {
         System.out.println("Calculator Output: " + myCalculator3.result);
         System.out.println("");
 
-        Calculator myCalculator4 = new Calculator("3 root 8 ^ 2");
+        Calculator myCalculator4 = new Calculator("(3 root 8 ^ 2");
         System.out.println("Fourth Calculator Example:");
         System.out.println("-------------------------");
         System.out.println("Original Expression: " + myCalculator4.expression);

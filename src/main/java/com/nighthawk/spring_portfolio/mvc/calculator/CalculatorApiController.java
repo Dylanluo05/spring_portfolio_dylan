@@ -7,14 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/** Calendar API
- * Calendar Endpoint: /api/calendar/isLeapYear/2022, Returns: {"year":2020,"isLeapYear":false}
- */
+// Calculator api, endpoint: /api/calculator/
 @RestController
 @RequestMapping("/api/calculator")
 public class CalculatorApiController {
-    @GetMapping("/{expression}")
-    public ResponseEntity<String> calculate(@RequestBody String expression) {
+    @GetMapping("/calculate")
+    public ResponseEntity<String> calculate(@RequestBody final String expression) {
         try {
             Calculator calculatedExpression = new Calculator(expression);
             return new ResponseEntity<>(calculatedExpression.toString(), HttpStatus.ACCEPTED);

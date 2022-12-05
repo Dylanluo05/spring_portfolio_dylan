@@ -20,6 +20,7 @@ public class Calculator {
         OPERATORS.put("^", 1);
         OPERATORS.put("root", 2);
         OPERATORS.put("sqrt", 2);
+        OPERATORS.put("ncr", 2);
         OPERATORS.put("*", 3);
         OPERATORS.put("/", 3);
         OPERATORS.put("%", 3);
@@ -158,6 +159,7 @@ public class Calculator {
                 case "^":
                 case "sqrt":
                 case "root":
+                case "ncr":
                     // While stack
                     // not empty AND stack top element
                     // and is an operator
@@ -191,7 +193,6 @@ public class Calculator {
         while (tokenStack.size() > 0) {
             reverse_polish.add(tokenStack.pop());
         }
-
     }
 
     // Takes RPN and produces a final result
@@ -238,6 +239,21 @@ public class Calculator {
                             break;
                         case "sqrt":
                             result = Math.pow(y, 1/2);
+                            break;
+                        case "ncr":
+                            int nFac = 1;
+                            for (int i = 1; i <= y; i++) {
+                                nFac = nFac * i;
+                            }
+                            int rFac = 1;
+                            for (int i = 1; i <= x; i++) {
+                                rFac = rFac * i;
+                            }
+                            int nMinusRFac = 1;
+                            for (int i = 1; i <= y-x; i++) {
+                                nMinusRFac=  nMinusRFac * i;
+                            }
+                            result = (double) nFac/(rFac * nMinusRFac);
                             break;
                         default:
                             break;
@@ -292,13 +308,22 @@ public class Calculator {
         System.out.println("Calculator Output: " + myCalculator3.result);
         System.out.println("");
 
-        Calculator myCalculator4 = new Calculator("(3 root 8 ^ 2");
+        Calculator myCalculator4 = new Calculator("3 root 8 ^ 2");
         System.out.println("Fourth Calculator Example:");
         System.out.println("-------------------------");
         System.out.println("Original Expression: " + myCalculator4.expression);
         System.out.println("Tokens ArrayList: " + myCalculator4.tokens);
         System.out.println("Reverse Polish Notation: " + myCalculator4.reverse_polish);
         System.out.println("Calculator Output: " + myCalculator4.result);
+        System.out.println("");
+
+        Calculator myCalculator5 = new Calculator("8 ncr 3");
+        System.out.println("Fifth Calculator Example:");
+        System.out.println("-------------------------");
+        System.out.println("Original Expression: " + myCalculator5.expression);
+        System.out.println("Tokens ArrayList: " + myCalculator5.tokens);
+        System.out.println("Reverse Polish Notation: " + myCalculator5.reverse_polish);
+        System.out.println("Calculator Output: " + myCalculator5.result);
         System.out.println("");
     }
 }

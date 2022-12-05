@@ -98,14 +98,13 @@ public class PersonApiController {
     /*
     The personStats API adds stats by Date to Person table 
     */
-    @PostMapping(value = "/setStats", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@PostMapping(value = "/setStats", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Person> personStats(@RequestBody final Map<String,Object> stat_map) {
         // find ID
-        long id=Long.parseLong((String)stat_map.get("id"));
+        long id=Long.valueOf(Integer.toString((int)stat_map.get("id")));  
         Optional<Person> optional = repository.findById((id));
         if (optional.isPresent()) {  // Good ID
             Person person = optional.get();  // value from findByID
-            double bmi=(double)stat_map.get("bmi");
 
             // Extract Attributes from JSON
             Map<String, Object> attributeMap = new HashMap<>();
@@ -114,13 +113,16 @@ public class PersonApiController {
                 if (!entry.getKey().equals("date") && !entry.getKey().equals("id"))
                     attributeMap.put(entry.getKey(), entry.getValue());
             }
-            attributeMap.put("bmi: ", bmi>person.getBmi());
 
             // Set Date and Attributes to SQL HashMap
             Map<String, Map<String, Object>> date_map = new HashMap<>();
-            date_map.putAll(person.getStats());
             date_map.put( (String) stat_map.get("date"), attributeMap );
-            person.setStats(date_map);  // BUG, needs to be customized to replace if existing or append if new
+            System.out.println(attributeMap);
+            System.out.println(date_map);
+            for (Map.Entry<String,Map<String, Object>> entry : date_map.entrySet())  {
+                person.addDailySteps((int)entry.getValue().get("steps"), (int)entry.getValue().get("calories"), entry.getKey());
+            }
+            // person.setStats(date_map);  // BUG, needs to be customized to replace if existing or append if new
             repository.save(person);  // conclude by writing the stats updates
 
             // return Person with update Stats
@@ -129,7 +131,7 @@ public class PersonApiController {
         // return Bad ID
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST); 
         
-    }
+    }*/
     
     @GetMapping("/toString/{id}")
     public String personToString(@PathVariable long id) {

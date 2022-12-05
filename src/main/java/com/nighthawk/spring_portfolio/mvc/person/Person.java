@@ -112,6 +112,23 @@ public class Person {
         return BMIValue;
     }
 
+    /*public void addDailySteps(int DailySteps, int Calories, String Day){
+        if(stats.containsKey(Day)){
+            //if it does, take stats>Day>steps and add DailySteps to it
+            Map daysteps = stats.get(Day);
+            daysteps.replace("calories", (int) daysteps.get("calories") + Calories);
+            daysteps.replace("steps", (int) daysteps.get("steps") + DailySteps);
+            stats.replace(Day, daysteps);
+        }
+        else{
+            //if it doesn't, create a new Object with calories 0 steps DailySteps and put in stats at key Day
+            HashMap newDay = new HashMap();
+            newDay.put("calories", Calories);
+            newDay.put("steps", DailySteps);
+            stats.put(Day, newDay);
+        }
+    }*/
+
     public String toString() {
         return ( "{ \"email\": "  + this.email +  ", " + "\"name\": "  + this.name +  ", " + "\"password\": "  + this.password + ", " +
         "\"dob\": "  + this.dob + ", " + "\"weight\": "  + this.weight + ", " + "\"height\": "  + this.height + ", " + "\"age\": "  + this.getAge() +
@@ -127,6 +144,4 @@ public class Person {
         System.out.println(dylan);
         System.out.println(dylan.getAge());
     }
-
-
 }

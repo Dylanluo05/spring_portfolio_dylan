@@ -249,12 +249,11 @@ public class Calculator {
             }
             System.out.println("");
         }
-        
     }
 
     public String toString() {
         return ( "{ \"expression\": "  + this.expression +  ", " + "\"tokens\": "  + this.tokens.toString() + ", " + "\"reverse_polish\": "  + this.reverse_polish.toString() +
-        ", " + "\"result\": "  + String.format("%.2f", this.result) + " }"); 
+        ", " + "\"result\": "  + String.format("%.2f", this.result) + ", " + "\"isBalanced\": "  + isBalanced(this.tokens) + " }"); 
     }
     
     public boolean isBalanced(ArrayList<String> tokens) {
@@ -286,7 +285,7 @@ public class Calculator {
 
     public static void main(String[] args) {
 
-        Calculator myCalculator1 = new Calculator("(1 + 2 * 4");
+        Calculator myCalculator1 = new Calculator("1 + 2 * 4");
         System.out.println("First Calculator Example:");
         System.out.println("-------------------------");
         System.out.println("Original Expression: " + myCalculator1.expression);

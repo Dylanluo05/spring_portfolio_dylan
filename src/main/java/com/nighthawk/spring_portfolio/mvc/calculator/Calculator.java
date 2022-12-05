@@ -44,10 +44,9 @@ public class Calculator {
 
         // parse expression into terms
         this.termTokenizer();
-
+        
         // place terms into reverse polish notation
         this.tokensToReversePolishNotation();
-
         // calculate reverse polish notation
         this.rpnToResult();
     }
@@ -68,33 +67,6 @@ public class Calculator {
     private Boolean isPrecedent(String token1, String token2) {
         // token 1 is precedent if it is greater than token 2
         return (OPERATORS.get(token1) - OPERATORS.get(token2) >= 0) ;
-    }
-
-    public boolean isBalanced(ArrayList<String> tokens) {
-        // Counters for the number of open delimiters and close delimiters
-        int openCount = 0;
-        int closeCount = 0;
-        for (String token : tokens) {
-            if (token == "(") {
-                openCount++;
-            } else if (token == ")") {
-                closeCount++;
-            }
-
-            // First condition is broken
-            if (openCount < closeCount) {
-                return false;
-            }
-        }
-        // First and second condition are both met
-        if (openCount == closeCount) {
-            return true;
-        } 
-        
-        // Second condition is broken
-        else {
-            return false;
-        }
     }
 
     // Term Tokenizer takes original expression and converts it to ArrayList of tokens
@@ -198,7 +170,7 @@ public class Calculator {
     // Takes RPN and produces a final result
     private void rpnToResult()
     {
-        if (isBalanced(this.tokens) == true) {
+        try {
             // stack is used to hold operands and each calculation
             Stack<Double> calcStack = new Stack<Double>();
 
@@ -270,9 +242,14 @@ public class Calculator {
             }
             // Pop final result and set as final result for expression
             this.result = calcStack.pop();
-        } else if (isBalanced(this.tokens) == false) {
-            System.out.println("Hello");
+        } catch (Exception e) {
+            System.out.println("Something went wrong");
+            if (isBalanced(tokens) == false) {
+                System.out.println("Error: The number of delimiters are not balanced!");
+            }
+            System.out.println("");
         }
+        
     }
 
     public String toString() {
@@ -280,8 +257,36 @@ public class Calculator {
         ", " + "\"result\": "  + String.format("%.2f", this.result) + " }"); 
     }
     
+    public boolean isBalanced(ArrayList<String> tokens) {
+        // Counters for the number of open delimiters and close delimiters
+        int openCount = 0;
+        int closeCount = 0;
+        for (int i = 0; i < tokens.size(); i++) {
+            if (tokens.get(i).equals("(")) {
+                openCount++;
+            } else if (tokens.get(i).equals(")")) {
+                closeCount++;
+            }
+
+            // First condition is broken
+            if (openCount < closeCount) {
+                return false;
+            }
+        }
+        // First and second condition are both met
+        if (openCount == closeCount) {
+            return true;
+        } 
+        
+        // Second condition is broken
+        else {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
-        Calculator myCalculator1 = new Calculator("1 + 2 * 4");
+
+        Calculator myCalculator1 = new Calculator("(1 + 2 * 4");
         System.out.println("First Calculator Example:");
         System.out.println("-------------------------");
         System.out.println("Original Expression: " + myCalculator1.expression);
@@ -308,7 +313,7 @@ public class Calculator {
         System.out.println("Calculator Output: " + myCalculator3.result);
         System.out.println("");
 
-        Calculator myCalculator4 = new Calculator("3 root 8 ^ 2");
+        Calculator myCalculator4 = new Calculator("(3 root 8 ^ 2");
         System.out.println("Fourth Calculator Example:");
         System.out.println("-------------------------");
         System.out.println("Original Expression: " + myCalculator4.expression);

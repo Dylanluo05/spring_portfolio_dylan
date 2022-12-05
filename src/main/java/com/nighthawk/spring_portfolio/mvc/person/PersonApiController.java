@@ -101,10 +101,11 @@ public class PersonApiController {
     @PostMapping(value = "/setStats", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Person> personStats(@RequestBody final Map<String,Object> stat_map) {
         // find ID
-        long id=Long.parseLong((String)stat_map.get("id"));  
+        long id=Long.parseLong((String)stat_map.get("id"));
         Optional<Person> optional = repository.findById((id));
         if (optional.isPresent()) {  // Good ID
             Person person = optional.get();  // value from findByID
+            double bmi=(double)stat_map.get("bmi");
 
             // Extract Attributes from JSON
             Map<String, Object> attributeMap = new HashMap<>();
@@ -113,9 +114,11 @@ public class PersonApiController {
                 if (!entry.getKey().equals("date") && !entry.getKey().equals("id"))
                     attributeMap.put(entry.getKey(), entry.getValue());
             }
+            attributeMap.put("bmi: ", bmi>person.getBmi());
 
             // Set Date and Attributes to SQL HashMap
             Map<String, Map<String, Object>> date_map = new HashMap<>();
+            date_map.putAll(person.getStats());
             date_map.put( (String) stat_map.get("date"), attributeMap );
             person.setStats(date_map);  // BUG, needs to be customized to replace if existing or append if new
             repository.save(person);  // conclude by writing the stats updates

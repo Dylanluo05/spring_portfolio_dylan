@@ -71,6 +71,9 @@ public class Person {
     @Column(unique=false)
     private double height;
 
+    @Column(unique=false)
+    private double bmi;
+
     /* HashMap is used to store JSON for daily "stats"
     "stats": {
         "2022-11-13": {
@@ -81,7 +84,7 @@ public class Person {
     */
     @Type(type="json")
     @Column(columnDefinition = "jsonb")
-    private Map<String,Map<String, Object>> stats = new HashMap<>(); 
+    private Map<String,Map<String, Object>> stats = new HashMap<>();
     
 
     // Constructor used when building object from an API
@@ -92,9 +95,7 @@ public class Person {
         this.dob = dob;
         this.weight = weight;
         this.height = height;
-    }
-    public String toString(){
-        return ("{ \"email\": " + this.email + ", " + "\"password\": " + this.password + ", " + "\"name\": " + this.name + ", " + "\"dob\": " + this.dob + ", \"weight\": " + this.weight + ", \"height\": " + this.height + " }" );
+        this.bmi = 703 * (weight/Math.pow(height,2));
     }
 
     // A custom getter to return age from dob attribute

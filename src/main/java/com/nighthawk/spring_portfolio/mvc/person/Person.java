@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.text.SimpleDateFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +20,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.data.mongodb.core.schema.JsonSchemaObject.Type.JsonType;
+import com.vladmihalcea.hibernate.type.json.JsonType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -64,29 +64,28 @@ public class Person {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
-
-    @NotEmpty
+    
+    @Column(unique=false)
     private double weight;
 
-    @NotEmpty
+    @Column(unique=false)
     private double height;
 
-    /*
-     * HashMap is used to store JSON for daily "stats"
-     * "stats": {
-     * "2022-11-13": {
-     * "calories": 2200,
-     * "steps": 8000
-     * }
-     * }
-     */
+    @Column(unique=false)
+    private double bmi;
 
-    /*
-     * @Type(type="json")
-     * 
-     * @Column(columnDefinition = "jsonb")
-     * private Map<String,Map<String, Object>> stats = new HashMap<>();
-     */
+    /* HashMap is used to store JSON for daily "stats"
+    "stats": {
+        "2022-11-13": {
+            "calories": 2200,
+            "steps": 8000
+        }
+    }
+    */
+    @Type(type="json")
+    @Column(columnDefinition = "jsonb")
+    private Map<String,Map<String, Object>> stats = new HashMap<>();
+    
 
     // Constructor used when building object from an API
     public Person(String email, String password, String name, Date dob, double weight, double height) {
@@ -96,6 +95,7 @@ public class Person {
         this.dob = dob;
         this.weight = weight;
         this.height = height;
+        this.bmi = 703 * (weight/Math.pow(height,2));
     }
 
     // A custom getter to return age from dob attribute
@@ -108,20 +108,37 @@ public class Person {
     }
 
     public double BMI(double weight, double height) {
-        double BMIValue = 703 * (weight / Math.pow(height, 2));
+        double BMIValue = 703 * (weight/Math.pow(height, 2));
         return BMIValue;
     }
 
+    /*public void addDailySteps(int DailySteps, int Calories, String Day){
+        if(stats.containsKey(Day)){
+            //if it does, take stats>Day>steps and add DailySteps to it
+            Map daysteps = stats.get(Day);
+            daysteps.replace("calories", (int) daysteps.get("calories") + Calories);
+            daysteps.replace("steps", (int) daysteps.get("steps") + DailySteps);
+            stats.replace(Day, daysteps);
+        }
+        else{
+            //if it doesn't, create a new Object with calories 0 steps DailySteps and put in stats at key Day
+            HashMap newDay = new HashMap();
+            newDay.put("calories", Calories);
+            newDay.put("steps", DailySteps);
+            stats.put(Day, newDay);
+        }
+    }*/
+
     public String toString() {
-        return ("{ \"email\": " + this.email + ", " + "\"name\": " + this.name + ", " + "\"password\": " + this.password
-                + ", " +
-                "\"dob\": " + this.dob + ", " + "\"weight\": " + this.weight + ", " + "\"height\": " + this.height
-                + ", " + "\"age\": " + this.getAge() +
-                ", " + "\"BMI\": " + this.BMI(this.weight, this.height) + " }");
+        return ( "{ \"email\": "  + this.email +  ", " + "\"name\": "  + this.name +  ", " + "\"password\": "  + this.password + ", " +
+        "\"dob\": "  + this.dob + ", " + "\"weight\": "  + this.weight + ", " + "\"height\": "  + this.height + ", " + "\"age\": "  + this.getAge() +
+        ", " + "\"BMI\": "  + this.BMI(this.weight, this.height) +  " }");
     }
+
 
     public static void main(String[] args) {
         Person noArg = new Person();
+<<<<<<< HEAD
         Date date = new Date(105, 7, 11);
        
         System.out.println(noArg);
@@ -156,6 +173,12 @@ public class Person {
 
 
 
+=======
+        Date dob = new GregorianCalendar(2005, 7, 11).getTime();
+        Person dylan = new Person("dragonfly.luo@gmail.com", "12345678", "Dylan", dob, 125, 67);
+        System.out.println(noArg);
+        System.out.println(dylan);
+        System.out.println(dylan.getAge());
+>>>>>>> 60f28746d3a34a37c6f44d2a26fea0d617695a04
     }
-
 }

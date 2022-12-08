@@ -123,10 +123,9 @@ public class Person {
     public static void main(String[] args) {
         Person noArg = new Person();
         Date date = new Date(105, 7, 11);
-        Person dylan = new Person("dragonfly.luo@gmail.com", "12345678", "Dylan", date, 125, 67);
+       
         System.out.println(noArg);
-        System.out.println(dylan);
-        System.out.println(dylan.getAge());
+        
 
         Date bd = new Date(102, 4, 8);
         Person aryan = new Person("aryanm@gma", "12345678", "Aryan", bd, 115, 66);
@@ -144,25 +143,15 @@ public class Person {
         System.out.println(greg);
         System.out.println(greg.getAge());
 
-        Date cal = new Date(92, 4, 8);
-        Person dough = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
-
-        System.out.println(dough);
-        System.out.println(dough.getAge());
-
-
-        Date mpc = new Date(92, 4, 8);
-        Person floyd = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
-
-        System.out.println(floyd);
-        System.out.println(floyd.getAge());
+        
 
         Date col = new Date(92, 4, 8);
         Person jimmy = new Person("ggreg@gmail.com", "120395", "Benjamin", time, 210, 74);
 
         System.out.println(jimmy);
         System.out.println(jimmy.getAge());
-
+        
+        System.out.println("Hello World");
 
 
 

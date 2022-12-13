@@ -12,6 +12,10 @@ public class Light {
     short green;
     short blue;
     short effect;
+    String hexCode;
+    int redRGB;
+    int greenRGB;
+    int blueRGB;
 
     /*  ANSI effects
         n	Name	Note
@@ -41,13 +45,25 @@ public class Light {
         EFFECT.put((short) 9, "Crossed_out");
     }
 
+    private final Map<String, String> COLORS = new HashMap<>();
+    {
+        COLORS.put("Red", "#FF0000");
+        COLORS.put("Orange", "#FFA500");
+        COLORS.put("Yellow", "#FFFF00");
+        COLORS.put("Green", "#00FF00");
+        COLORS.put("Blue", "#0000FF");
+        COLORS.put("Indigo", "#4B0082");
+        COLORS.put("Violet", "#8F00FF");
+        COLORS.put("Black", "#000000");
+    }
+
     /* Assign random colors and effects */
-    public Light() {
-        int maxColor = 255;
+    public Light(String colorName) {
         int effect = 9;
-        this.red = (short) (Math.random()*(maxColor+1));
-        this.green = (short) (Math.random()*(maxColor+1));
-        this.blue = (short) (Math.random()*(maxColor+1));
+        this.hexCode = COLORS.get(colorName);
+        this.redRGB = Integer.valueOf(hexCode.substring(1, 3), 16);
+        this.greenRGB = Integer.valueOf(hexCode.substring(3, 5), 16);
+        this.blueRGB = Integer.valueOf(hexCode.substring(5, 7), 16);
         this.effect = (short) (Math.random()*(effect+1));
     }
 
@@ -57,25 +73,25 @@ public class Light {
 
     public String getRGB() {
         return ( "#" +
-         String.format("%02X", this.red) +
-         String.format("%02X", this.green) + 
-         String.format("%02X", this.blue) 
+         String.format("%02X", redRGB) +
+         String.format("%02X", greenRGB) + 
+         String.format("%02X", blueRGB) 
          );
     }
 
     /* toString output as key/values */
     public String toString() {
         return( "{" + 
-            "\"red\": " + red + "," +
-            "\"green\": " +  green + "," + 
-            "\"blue\": " + blue + "," +
+            "\"red\": " + redRGB + "," +
+            "\"green\": " +  greenRGB + "," + 
+            "\"blue\": " + blueRGB + "," +
             "\"effect\": " + "\"" + EFFECT.get(effect) + "\"" +
             "}" );
     }
 
     static public void main(String[] args) {
         // create and display LightBoard
-        Light light = new Light();
+        Light light = new Light("Violet");
         System.out.println(light);  // use toString() method
     }
 }

@@ -23,14 +23,38 @@ public class LightBoardApiController {
      *  @throws JsonProcessingException
      *  @throws JsonMappingException
      */
-    @GetMapping("/toString/{numRows}/{numCols}")
-    public ResponseEntity<JsonNode> toString(@PathVariable int numRows, @PathVariable int numCols) throws JsonMappingException, JsonProcessingException {
+    @GetMapping("/toString/{numRows}/{numCols}/{rowNumberOffList}/{colNumberOffList}")
+    public ResponseEntity<JsonNode> toString(@PathVariable int numRows, @PathVariable int numCols, @PathVariable int[] rowNumberOffList, @PathVariable int[] colNumberOffList) throws JsonMappingException, JsonProcessingException {
       // Backend Year Object
-      LightBoard lightBoardObj = new LightBoard(numRows, numCols);
+      LightBoard lightBoardObj = new LightBoard(numRows, numCols, rowNumberOffList, colNumberOffList);
       
       // Turn Year Object into JSON
       ObjectMapper mapper = new ObjectMapper(); 
       JsonNode json = mapper.readTree(lightBoardObj.toString()); // this requires exception handling
+
+      return ResponseEntity.ok(json);  // JSON response, see ExceptionHandlerAdvice for throws
+    }
+
+    @GetMapping("/toTerminal/{rows}/{cols}/{rowNumberOffList}/{colNumberOffList}")
+    public ResponseEntity<JsonNode> toTerminal(@PathVariable int numRows, @PathVariable int numCols, @PathVariable int[] rowNumberOffList, @PathVariable int[] colNumberOffList) throws JsonMappingException, JsonProcessingException {
+      // Backend Year Object
+      LightBoard lightBoardObj = new LightBoard(numRows, numCols, rowNumberOffList, colNumberOffList);
+      
+      // Turn Year Object into JSON
+      ObjectMapper mapper = new ObjectMapper(); 
+      JsonNode json = mapper.readTree(lightBoardObj.toTerminal()); // this requires exception handling
+
+      return ResponseEntity.ok(json);  // JSON response, see ExceptionHandlerAdvice for throws
+    }
+    
+    @GetMapping("/toColorPalette/{rows}/{cols}/{rowNumberOffList}/{colNumberOffList}")
+    public ResponseEntity<JsonNode> toColorPalette(@PathVariable int numRows, @PathVariable int numCols, @PathVariable int[] rowNumberOffList, @PathVariable int[] colNumberOffList) throws JsonMappingException, JsonProcessingException {
+      // Backend Year Object
+      LightBoard lightBoardObj = new LightBoard(numRows, numCols, rowNumberOffList, colNumberOffList);
+      
+      // Turn Year Object into JSON
+      ObjectMapper mapper = new ObjectMapper(); 
+      JsonNode json = mapper.readTree(lightBoardObj.toColorPalette()); // this requires exception handling
 
       return ResponseEntity.ok(json);  // JSON response, see ExceptionHandlerAdvice for throws
     }
